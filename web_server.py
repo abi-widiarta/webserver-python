@@ -2,41 +2,48 @@ from socket import *
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverPort = 8080
-serverSocket.bind(("localhost",serverPort))
+serverSocket.bind(("localhost", serverPort))
 serverSocket.listen(1)
 
+print('Ready to serve... \n')
+
 while True:
-  print('Ready to serve...')
-
-  connectionSocket, addr = serverSocket.accept()
-
-  try:
+    connectionSocket, addr = serverSocket.accept()
     message = connectionSocket.recv(1024)
-    filename = message.split()[1]
 
-    if filename[1:] == b'':
-      f = open('index.html')
-    else:
-      f = open(filename[1:])
-    outputdata = f.read()
+    try:
+        print(f"Message from client:")
+        print(message.decode().strip(), end="\n\n")
+        filename = message.split()[1][1:]
 
-    # -- yang berubah
-    connectionSocket.send("HTTP/1.1 200 OK\r\n".encode())
-    connectionSocket.send("Content-Type: text/html\r\n".encode())
-    connectionSocket.send("\r\n".encode())
-    # ---------------
+        if filename == b'':
+            filename = b'index.html'
 
-    for i in range(0, len(outputdata)):
-      connectionSocket.send(outputdata[i].encode())
+        with open(filename, 'rb') as file:
+            content = file.read()
 
-    connectionSocket.close()
+        response_header = "HTTP/1.1 200 OK\r\n".encode()
+        if filename.endswith(b".html"):
+          response_header += b"Content-Type: text/html\r\n"
+        elif filename.endswith(b".css"):
+          response_header += b"Content-Type: text/css\r\n"
+        elif filename.endswith(b".jpg") or filename.endswith(b".jpeg"):
+          response_header += b"Content-Type: image/jpeg\r\n"
+        elif filename.endswith(b".svg"):
+          response_header += b"Content-Type: image/svg+xml\r\n"
+        else:
+          response_header += b"Content-Type: text/plain\r\n"
 
-  except IOError:
-    # -- yang berubah
-    connectionSocket.send("HTTP/1.1 404 Not Found\r\n".encode())
-    connectionSocket.send("Content-Type: text/html\r\n".encode())
-    # ---------------
-    connectionSocket.send("<html><head></head<body><h1>404 Not Found</h1></body></html>\r\n".encode())
+        response_header += "\r\n".encode()
+        response = response_header + content
+    except IOError:
+        response_header = "HTTP/1.1 404 Not Found\r\n".encode()
+        response_header += "Content-Type: text/html\r\n".encode()
+        response_header += "\r\n".encode()
+        response_body = "<html><head></head><body><h1>404 Not Found</h1></body></html>".encode()
+        response = response_header + response_body
+
+    connectionSocket.sendall(response)
     connectionSocket.close()
 
 serverSocket.close()

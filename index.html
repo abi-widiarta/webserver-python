@@ -1,41 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Python Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Tugas Besar Jarkom | Kelompok 2 IF4509</title>
+    <meta name="description" />
+    <!-- custom.css -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
   </head>
+
   <body>
-    <h1>TUGAS BESAR PRAKTIKUM JARINGAN KOMUNIKASI</h1>
-    <h3>WEB SERVER | IF-45-09</h3>
-    <hr />
-    <!-- <p>Kelompok 1 - IF-45-09</p> -->
-    <table border="1" cellspacing="0" cellpadding="5">
-      <tr>
-        <th colspan="2">Kelompok 1</th>
-      </tr>
-      <tr>
-        <th>Nama</th>
-        <th>NIM</th>
-      </tr>
-      <tr>
-        <td>Hamdan Azani</td>
-        <td>1301213029</td>
-      </tr>
-      <tr>
-        <td>I Wayan Abi Widiarta</td>
-        <td>1301213196</td>
-      </tr>
-      <tr>
-        <td>Raditya Aydin</td>
-        <td>1301213292</td>
-      </tr>
-    </table>
-    <!-- <ul>
-      <li>Hamdan Azani - 1301213029</li>
-      <li>I Wayan Abi Widiarta - 1301213196</li>
-      <li>Raditya Aydin - 1301213292</li>
-    </ul> -->
+    <!-- hero -->
+    <div class="jumbotron jumbotron-fluid" id="banner">
+      <div class="jumbotron-container text-center">
+        <h1 data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="600" data-aos-once="true" class="text-white font-weight-bold mt-5 mb-3 display-3">Telkom University</h1>
+        <h4 data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="600" data-aos-once="true" data-aos-delay="100" class="text-white mb-5">Tugas Besar Praktikum Jaringan Komputer</h4>
+        <h5 data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="600" data-aos-once="true" data-aos-delay="200" class="text-white">Kelompok 2</h5>
+        <h5 data-aos="fade-up" data-aos-easing="ease-out" data-aos-duration="600" data-aos-once="true" data-aos-delay="300" class="text-white my-0 mb-5">IF-45-09</h5>
+        <img class="mb-3" src="./img/wave.png" alt="" />
+      </div>
+    </div>
+    <!-- anggota -->
+    <div id="anggota-container" class="mt-5 container">
+      <h2 data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="text-center font-weight-bold mb-5 display-2">Anggota Kelompok</h2>
+      <div class="row anggota-wrapper flex justify-content-between row-gap-3">
+        <div class="anggota" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+          <img class="rounded-circle" src="./img/hamdan.jpg" alt="person1" class="mx-auto" />
+          <h4>Hamdan Azani</h4>
+          <p>1301213029</p>
+        </div>
+        <div class="anggota" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+          <img class="rounded-circle" src="./img/abi.jpg" alt="person1" class="mx-auto" />
+          <h4>I Wayan Abi Widiarta</h4>
+          <p>1301213196</p>
+        </div>
+        <div class="anggota" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+          <img class="rounded-circle" src="./img/radit.jpg" alt="person1" class="mx-auto" />
+          <h4>Raditya Aydin</h4>
+          <p>1301213292</p>
+        </div>
+      </div>
+    </div>
+    <img class="wave-2" src="./img/wave2.png" alt="" />
+    <!-- Deskripsi Tugas Besar -->
+    <div id="deskripsi">
+      <h2 data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="text-center font-weight-bold display-2">Deskripsi Tugas</h2>
+      <div class="d-flex mt-4 w-100 justify-content-center">
+        <p class="w-50">
+          Website ini merupakan submisi tugas besar jarkom pembuatan web server yang menerapkan fungsi kerja web socket dari modul bahasa pemrograman python menggunakan protokol TCP. Web server yang dibangun dapat menampilkan file yang di
+          inginkan oleh client.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white d-flex justify-content-end align-items-center">
+      <a href="https://github.com/abi-widiarta/webserver-python">Access Code Here</a>
+    </footer>
   </body>
 </html>

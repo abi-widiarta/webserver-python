@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("https://media.tenor.com/ShqRkUv63pAAAAAd/cat-vibing-vibing-cat.gif");
+  background-size: auto;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+marquee {
+  font-size: 300px;
+  color: red;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.wave-2 {
+  width: 100%;
+  margin: 0 !important;
+}
